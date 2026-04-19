@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>luoluo的藏宝阁</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 导航栏 -->
+        <nav class="navbar">
+            <h1 class="logo">luoluo的藏宝阁</h1>
+            <div class="nav-links">
+                <a href="#collection" class="nav-link active">我的收藏</a>
+                <a href="#spin" class="nav-link">转一转</a>
+            </div>
+        </nav>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 我的收藏页面 -->
+            <section id="collection" class="page active">
+                <div class="page-header">
+                    <h2>我的收藏</h2>
+                    <button id="add-collection" class="btn btn-primary">添加收藏</button>
+                </div>
+                <div id="collection-list" class="collection-list">
+                    <!-- 收藏项将通过JavaScript动态添加 -->
+                </div>
+            </section>
+
+            <!-- 转一转页面 -->
+            <section id="spin" class="page">
+                <div class="page-header">
+                    <h2>转一转</h2>
+                    <p>点击转盘随机选择一个收藏</p>
+                </div>
+                <div class="spin-container">
+                    <div id="wheel" class="wheel">
+                        <!-- 转盘扇区将通过JavaScript动态添加 -->
+                    </div>
+                    <button id="spin-btn" class="spin-btn">转动</button>
+                </div>
+                <div id="spin-result" class="spin-result">
+                    <!-- 转动结果将显示在这里 -->
+                </div>
+            </section>
+        </main>
+
+        <!-- 底部导航 -->
+        <footer class="bottom-nav">
+            <a href="#collection" class="nav-item active">
+                <span class="nav-icon">📦</span>
+                <span class="nav-text">我的收藏</span>
+            </a>
+            <a href="#spin" class="nav-item">
+                <span class="nav-icon">🎡</span>
+                <span class="nav-text">转一转</span>
+            </a>
+        </footer>
+
+        <!-- 添加收藏的模态框 -->
+        <div id="add-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>添加收藏</h3>
+                    <button id="close-modal" class="close-btn">×</button>
+                </div>
+                <form id="collection-form">
+                    <div class="form-group">
+                        <label for="name">名称</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">日期</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">地点</label>
+                        <input type="text" id="location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">介绍</label>
+                        <textarea id="description" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>照片</label>
+                        <input type="file" id="photos" multiple accept="image/*" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">保存</button>
+                        <button type="button" id="cancel-add" class="btn btn-secondary">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 收藏详情模态框 -->
+        <div id="detail-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="detail-name">收藏详情</h3>
+                    <button id="close-detail" class="close-btn">×</button>
+                </div>
+                <div class="detail-content">
+                    <div id="detail-images" class="detail-images">
+                        <!-- 图片将通过JavaScript动态添加 -->
+                    </div>
+                    <div class="detail-info">
+                        <p><strong>日期:</strong> <span id="detail-date"></span></p>
+                        <p><strong>地点:</strong> <span id="detail-location"></span></p>
+                        <p><strong>介绍:</strong> <span id="detail-description"></span></p>
+                    </div>
+                    <div class="detail-actions">
+                        <button id="like-btn" class="btn btn-like">
+                            <span class="like-icon">❤️</span>
+                            <span id="like-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
